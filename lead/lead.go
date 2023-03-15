@@ -1,11 +1,12 @@
 package lead
 
 import (
-	"github.com/akhil/go-fiber-crm-basic/database"
+	"github.com/akhil/CRM/database"
 	"github.com/gofiber/fiber"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
+
 
 type Lead struct {
 	gorm.Model
@@ -13,6 +14,7 @@ type Lead struct {
 	Company string `json:"company"`
 	Email   string `json:"email"`
 	Phone   int    `json:"phone"`
+	
 }
 
 func GetLeads(c *fiber.Ctx) {
@@ -53,5 +55,5 @@ func DeleteLead(c *fiber.Ctx) {
 		return
 	}
 	db.Delete(&lead)
-	c.Send("Lead successfully Deleted")
+	c.Send("Lead with ID: ",lead.ID," deleted successfully")
 }

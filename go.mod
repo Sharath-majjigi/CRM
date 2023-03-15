@@ -1,4 +1,4 @@
-module github.com/akhil/go-fiber-crm-basic
+module github.com/akhil/CRM
 
 go 1.16
 
